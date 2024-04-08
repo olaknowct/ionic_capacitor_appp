@@ -24,6 +24,14 @@ const Login: React.FC = () => {
         checkStorage()
     }, []);
 
+    const doLogin = async (event: any) => {
+        event.preventDefault();
+        await present('Logging in...');
+        setTimeout(async () => {
+            dismiss();
+            router.push('/app', 'root');
+        }, 2000);
+    };
     const finishIntro = async () => {
         setIntroSeen(true)
         Preferences.set({ key: INTRO_KEY, value: 'true' })
