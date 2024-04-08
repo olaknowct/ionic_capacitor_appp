@@ -1,7 +1,7 @@
 import { IonButton, IonCard, IonCardContent, IonContent, IonFooter, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar, useIonRouter } from '@ionic/react';
 import React, { useState } from 'react';
 import { logInOutline, personCircleOutline } from 'ionicons/icons'
-import Intro from './Intro';
+import Intro from '../components/Intro';
 
 const Login: React.FC = () => {
     const router = useIonRouter();
@@ -14,6 +14,7 @@ const Login: React.FC = () => {
 
     const finishIntro = async () => {
         console.log("fin");
+        setIntroSeen(true)
 
     }
 
