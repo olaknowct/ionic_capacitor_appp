@@ -1,4 +1,4 @@
-import { IonButton, IonCard, IonCardContent, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar, useIonLoading, useIonRouter } from '@ionic/react';
+import { IonButton, IonCard, IonCardContent, IonCol, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonInput, IonPage, IonRow, IonTitle, IonToolbar, useIonLoading, useIonRouter } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import { logInOutline, personCircleOutline } from 'ionicons/icons'
 import Intro from '../components/Intro';
@@ -54,30 +54,42 @@ const Login: React.FC = () => {
                         </IonToolbar>
                     </IonHeader>
                     <IonContent className="ion-padding" scrollY={false}>
-                        <div className="ion-text-center ion-padding">
-                            <img src={FCC} alt="FCC logo" width={'50%'} />
-                        </div>
-                        <IonCard>
-                            <IonCardContent>
-                                <form onSubmit={doLogin}>
-                                    <IonInput labelPlacement='floating' fill='outline' label='Email' type='email' placeholder='olano@skig.tech'></IonInput>
-                                    <IonInput className='ion-margin-top' labelPlacement='floating' fill='outline' label='Passport' type='text' placeholder='olano@skig.tech'></IonInput>
-                                    <IonButton className='ion-margin-top' type="submit" expand="block">
-                                        Login
-                                        <IonIcon icon={logInOutline} slot="end" />
-                                    </IonButton>
-                                    <IonButton className='ion-margin-top' color={'secondary'} type="button" routerLink='/register' expand="block">
-                                        Create Account
-                                        <IonIcon icon={personCircleOutline} slot="end" />
-                                    </IonButton>
-                                    <IonButton onClick={seeIntroAgain} fill='clear' className='ion-margin-top' size='small' color={'medium'} type="button" expand="block">
-                                        Watch intro again
-                                        <IonIcon icon={personCircleOutline} slot="end" />
-                                    </IonButton>
-                                </form>
+                        <IonGrid fixed>
+                            <IonRow className='ion-justify-content-center' >
+                                <IonCol size='12' sizeMd="8" sizeLg="6" sizeXl="4">
+                                    <div className="ion-text-center ion-padding">
+                                        <img src={FCC} alt="FCC logo" width={'50%'} />
+                                    </div>
 
-                            </IonCardContent>
-                        </IonCard>
+                                </IonCol>
+                            </IonRow>
+                            <IonRow className='ion-justify-content-center' >
+                                <IonCol size='12' sizeMd="8" sizeLg="6" sizeXl="4">
+                                    <IonCard>
+                                        <IonCardContent>
+                                            <form onSubmit={doLogin}>
+                                                <IonInput labelPlacement='floating' fill='outline' label='Email' type='email' placeholder='olano@skig.tech'></IonInput>
+                                                <IonInput className='ion-margin-top' labelPlacement='floating' fill='outline' label='Passport' type='text' placeholder='olano@skig.tech'></IonInput>
+                                                <IonButton className='ion-margin-top' type="submit" expand="block">
+                                                    Login
+                                                    <IonIcon icon={logInOutline} slot="end" />
+                                                </IonButton>
+                                                <IonButton className='ion-margin-top' color={'secondary'} type="button" routerLink='/register' expand="block">
+                                                    Create Account
+                                                    <IonIcon icon={personCircleOutline} slot="end" />
+                                                </IonButton>
+                                                <IonButton onClick={seeIntroAgain} fill='clear' className='ion-margin-top' size='small' color={'medium'} type="button" expand="block">
+                                                    Watch intro again
+                                                    <IonIcon icon={personCircleOutline} slot="end" />
+                                                </IonButton>
+                                            </form>
+
+                                        </IonCardContent>
+                                    </IonCard>
+                                </IonCol>
+                            </IonRow>
+                        </IonGrid>
+
                     </IonContent>
 
                 </IonPage>
