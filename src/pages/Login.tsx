@@ -1,8 +1,9 @@
-import { IonButton, IonCard, IonCardContent, IonContent, IonFooter, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar, useIonLoading, useIonRouter } from '@ionic/react';
+import { IonButton, IonCard, IonCardContent, IonContent, IonFooter, IonGrid, IonHeader, IonIcon, IonInput, IonPage, IonTitle, IonToolbar, useIonLoading, useIonRouter } from '@ionic/react';
 import React, { useEffect, useState } from 'react';
 import { logInOutline, personCircleOutline } from 'ionicons/icons'
 import Intro from '../components/Intro';
 import { Preferences } from '@capacitor/preferences';
+import FCC from '../assets/fcc.svg';
 
 const INTRO_KEY = 'intro-seen'
 
@@ -52,7 +53,10 @@ const Login: React.FC = () => {
                             <IonTitle>Native App</IonTitle>
                         </IonToolbar>
                     </IonHeader>
-                    <IonContent scrollY={false}>
+                    <IonContent className="ion-padding" scrollY={false}>
+                        <div className="ion-text-center ion-padding">
+                            <img src={FCC} alt="FCC logo" width={'50%'} />
+                        </div>
                         <IonCard>
                             <IonCardContent>
                                 <form onSubmit={doLogin}>
