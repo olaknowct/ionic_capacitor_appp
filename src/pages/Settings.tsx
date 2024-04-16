@@ -7,7 +7,7 @@ const Settings: React.FC = () => {
         <IonPage>
             <IonHeader>
                 <IonToolbar>
-                    <IonTitle>Page Title</IonTitle>
+                    <IonTitle>Settings</IonTitle>
                 </IonToolbar>
             </IonHeader>
             <IonContent className="ion-padding">
