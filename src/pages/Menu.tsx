@@ -1,4 +1,4 @@
-import { IonContent, IonHeader, IonIcon, IonItem, IonMenu, IonMenuToggle, IonPage, IonRouterOutlet, IonTitle, IonToolbar } from '@ionic/react';
+import { IonContent, IonHeader, IonIcon, IonItem, IonMenu, IonMenuToggle, IonPage, IonRouterOutlet, IonSplitPane, IonTitle, IonToolbar } from '@ionic/react';
 import React from 'react';
 import { Redirect, Route } from 'react-router';
 import List from './List';
@@ -14,30 +14,32 @@ const Menu: React.FC = () => {
 
     return (
         <IonPage>
-            <IonMenu contentId='main'>
-                <IonHeader>
-                    <IonToolbar color={'secondary'}>
-                        <IonTitle>Menu</IonTitle>
-                    </IonToolbar>
-                </IonHeader>
-                <IonContent className="ion-padding">
-                    {paths.map((item, index) => (
-                        <IonMenuToggle key={index} autoHide={false}>
-                            <IonItem detail={true} routerLink={item.url} routerDirection="none">
-                                <IonIcon slot="start" icon={item.icon} />
-                                {item.name}
-                            </IonItem>
-                        </IonMenuToggle>
-                    ))}
-                </IonContent>
-            </IonMenu>
-            <IonRouterOutlet id="main">
-                <Route exact path="/app/list" component={List} />
-                <Route path="/app/settings" component={Settings} />
-                <Route exact path="/app">
-                    <Redirect to="/app/list" />
-                </Route>
-            </IonRouterOutlet>
+            <IonSplitPane contentId='main' when='md'>
+                <IonMenu contentId='main'>
+                    <IonHeader>
+                        <IonToolbar color={'secondary'}>
+                            <IonTitle>Menu</IonTitle>
+                        </IonToolbar>
+                    </IonHeader>
+                    <IonContent className="ion-padding">
+                        {paths.map((item, index) => (
+                            <IonMenuToggle key={index} autoHide={false}>
+                                <IonItem detail={true} routerLink={item.url} routerDirection="none">
+                                    <IonIcon slot="start" icon={item.icon} />
+                                    {item.name}
+                                </IonItem>
+                            </IonMenuToggle>
+                        ))}
+                    </IonContent>
+                </IonMenu>
+                <IonRouterOutlet id="main">
+                    <Route exact path="/app/list" component={List} />
+                    <Route path="/app/settings" component={Settings} />
+                    <Route exact path="/app">
+                        <Redirect to="/app/list" />
+                    </Route>
+                </IonRouterOutlet>
+            </IonSplitPane>
         </IonPage>
     );
 };
